@@ -1,6 +1,6 @@
 package Exercicios;
 
-public class aviaoMain {
+public class TesteAviao {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
