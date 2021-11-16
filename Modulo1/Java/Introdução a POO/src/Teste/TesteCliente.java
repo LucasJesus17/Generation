@@ -1,4 +1,6 @@
-package Exercicios;
+package Teste;
+
+import Exercicios.Cliente;
 
 public class TesteCliente {
 

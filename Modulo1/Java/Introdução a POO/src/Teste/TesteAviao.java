@@ -1,4 +1,6 @@
-package Exercicios;
+package Teste;
+
+import Exercicios.Aviao;
 
 public class TesteAviao {
 
