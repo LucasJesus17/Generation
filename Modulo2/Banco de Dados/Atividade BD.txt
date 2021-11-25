@@ -1,0 +1,97 @@
+Atividade 1
+
+create database db_RH;
+use db_RH
+
+create table tb_funcionaries(
+id bigint auto_increment unique,
+nome varchar(255) not null,
+salario decimal(8,2) not null,
+CPF varchar(11) not null unique,
+telefone varchar(11),
+
+primary key(id)
+);
+
+insert into tb_funcionaries(nome,salario,CPF,telefone) values("Jorge", 15.000, "1156654456", "11552226655");
+insert into tb_funcionaries(nome,salario,CPF,telefone) values("Maria", 18.000, "1926654456", "12352226655");
+insert into tb_funcionaries(nome,salario,CPF,telefone) values("Antonio", 9.000, "1666654456", "16852226655");
+insert into tb_funcionaries(nome,salario,CPF,telefone) values("Priscila", 11.000, "1156650056", "13052226655");
+insert into tb_funcionaries(nome,salario,CPF,telefone) values("Vanessa", 12.000, "1156698456", "11550026655");
+
+select * from tb_funcionaries where salario > 200;
+
+select * from tb_funcionaries where salario < 200;
+
+update tb_funcionaries set salario = 10000 where id = 3;
+
+select * from tb_funcionaries where id = 3;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Atividade 2
+
+create database db_Loja;
+use db_Loja;
+
+create table tb_produto(
+id bigint auto_increment unique,
+nome varchar(255) not null,
+qtd int not null,
+preco decimal(8,2) not null,
+cor varchar(11) not null,
+
+primary key(id)
+);
+
+insert into tb_produto(nome,qtd,preco,cor) value ("Camisa",20,'50', "Azul");
+insert into tb_produto(nome,qtd,preco,cor) value ("Calça",18,'130', "Preta");
+insert into tb_produto(nome,qtd,preco,cor) value ("Sapatos",8,'850', "Cinza/Branco");
+insert into tb_produto(nome,qtd,preco,cor) value ("Boné",12,'190', "Preto");
+insert into tb_produto(nome,qtd,preco,cor) value ("Vestido",10,'350', "Branco");
+insert into tb_produto(nome,qtd,preco,cor) value ("Oculos",55,'850', "Preto");
+insert into tb_produto(nome,qtd,preco,cor) value ("Chinelo",28,'190', "Vermelho");
+insert into tb_produto(nome,qtd,preco,cor) value ("Shots",33,'350', "Cinza");
+
+select * from tb_produto where preco > 500;
+
+select * from tb_produto where preco < 500;
+
+update tb_produto set cor = "Amarelo" where id = 5;
+
+select * from tb_produto where id = 5;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Atividade 3
+
+create database db_escola;
+use db_escola;
+
+create table tb_estudantes(
+id bigint auto_increment unique,
+nome varchar(255) not null,
+dtNascimento date not null,
+endereco varchar(255) not null,
+matricula int not null,
+nota decimal(10,1) not null,
+
+primary key(id)
+);
+
+insert into tb_estudantes(nome,dtNascimento,endereco,matricula, nota) values ("Mario", "2001-05-17","Rua brasilina de abrel", 1155668, 5.7);
+insert into tb_estudantes(nome,dtNascimento,endereco,matricula, nota) values ("Estephane", "2005-10-09","Rua antonio nunes", 1885668, 9.9);
+insert into tb_estudantes(nome,dtNascimento,endereco,matricula, nota) values ("Vitoria", "2002-05-23","Rua Jorge amaral", 1955668, 6.8);
+insert into tb_estudantes(nome,dtNascimento,endereco,matricula, nota) values ("Cleyton", "2001-09-18","Rua brasilina de abrel", 1325668, 8.6);
+insert into tb_estudantes(nome,dtNascimento,endereco,matricula, nota) values ("Vitor", "2003-02-04","Rua Macos costa", 1255668, 7.5);
+insert into tb_estudantes(nome,dtNascimento,endereco,matricula, nota) values ("Julia", "2005-01-12","Rua antonio nunes", 3155668, 10.0);
+insert into tb_estudantes(nome,dtNascimento,endereco,matricula, nota) values ("Luis", "2004-03-14","Rua Carlos alberto", 5255668, 4.0);
+
+select * from tb_estudantes;
+
+select * from tb_estudantes where nota > 7;
+
+select * from tb_estudantes where nota < 7;
+
+update tb_estudantes set nota = 0.0 where id = 6;
+
+select * from tb_estudantes where id = 6;
