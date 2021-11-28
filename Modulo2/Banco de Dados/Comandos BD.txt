@@ -1,0 +1,82 @@
+
+			Chave Estrangeira
+
+FOREIGN KEY (categoria_id) REFERENCES tb_categoria (id)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+			Joins
+
+select tb_produtos.nome, tb_produtos.preco, tb_produtos.qtProduto, tb_categoria.descricao from tb_produtos inner join tb_categoria on id = categoria_id;
+
+select tb_produtos.nome, tb_produtos.preco, tb_produtos.qtProduto, tb_categoria.descricao from tb_produtos right join tb_categoria on tb_categoria.id = tb_produtos.categoria_id;
+
+---------------------------------------------------------------------------------------------------------------------------
+
+			Min/Max
+
+select max(preco) from tb_produtos;
+
+select min(preco) from tb_produtos;
+
+select * from tb_produtos where preco = (select max(preco) from tb_produtos);
+
+---------------------------------------------------------------------------------------------------------------------------
+
+			AVG
+
+select avg(preco) from tb_produtos;
+
+select categoria_id,avg(preco) as media_preco from tb_produtos group by categoria_id;
+
+---------------------------------------------------------------------------------------------------------------------------
+
+			Like
+	
+select * from tb_produtos where nome like "ha%";
+
+select * from tb_produtos where nome like "%ha";
+
+select * from tb_produtos where nome like "%ha%";
+
+---------------------------------------------------------------------------------------------------------------------------
+
+			Order BY
+
+select * from tb_produtos order by nome;
+
+select * from tb_produtos order by nome desc;
+
+---------------------------------------------------------------------------------------------------------------------------
+
+			Where/IF
+
+select * from tb_produtos where preco > 20.00 and preco < 50.00;
+
+
+select descricao, if(ativo, "verdadeiro", "falso") as teste_ativo from tb_categoria;
+
+----------------------------------------------------------------------------------------------------------------------------
+			
+			In/Between
+
+
+select * from tb_produtos where preco in (30, 40, 50);
+
+select * from tb_produtos where dtvalidade between "2021-11-07" and "2021-11-15";
+
+----------------------------------------------------------------------------------------------------------------------------
+
+			Count/Sum
+
+select count(*) from tb_produtos;
+
+select count(categoria_id) from tb_produtos;
+
+select sum(preco) from tb_produtos;
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+			Format
+
+select nome, date_format(dtvalidade, "%d/%m/%Y") as Data_Validade from tb_produtos;
