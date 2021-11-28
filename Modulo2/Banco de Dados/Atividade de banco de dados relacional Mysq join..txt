@@ -1,0 +1,79 @@
+Atividade 1
+
+create database db_generation_game_online;
+use db_generation_game_online;
+
+create table tb_classe(
+id bigint auto_increment unique,
+nome varchar(255) not null,
+armamento varchar(255),
+
+primary key(id)
+);
+
+create table tb_personagem(
+id bigint auto_increment unique,
+nome varchar(255) not null,
+raca varchar(255) not null,
+antecendente varchar(255) not null,
+tendencia varchar(255) not null,
+classe_id bigint,
+poder int not null,
+defesa int not null,
+primary key(id),
+foreign key(classe_id) references tb_classe (id)
+);
+
+
+insert into tb_classe (nome, armamento) values ("Guerreiro", "Espada Grande");
+insert into tb_classe (nome, armamento) values ("Arqueiro", "Arco Longo");
+insert into tb_classe (nome, armamento) values ("Mago", "Foco Arcano");
+insert into tb_classe (nome, armamento) values ("Monge", "Bordão");
+insert into tb_classe (nome, armamento) values ("Bardo", "Alaude");
+
+insert into tb_personagem (nome, raca, antecendente, tendencia, classe_id, poder, defesa) values ("Drake Strongford", "Humano", "Charlatão", "Neutro/Mal", 3, 10000, 500);
+insert into tb_personagem (nome, raca, antecendente, tendencia, classe_id, poder, defesa) values ("Mikaela", "Vampiro", "Andarilho", "Caotico/ neutro", 3, 3000, 5000);
+insert into tb_personagem (nome, raca, antecendente, tendencia, classe_id, poder, defesa) values ("Maldracor", "Draconato", "Diplomata", "Leal/Bom", 1, 2500, 6000);
+insert into tb_personagem (nome, raca, antecendente, tendencia, classe_id, poder, defesa) values ("Miriel", "Elfo da Floresta","Combatente" , "Neutro/Mal", 2, 2600, 2300);
+insert into tb_personagem (nome, raca, antecendente, tendencia, classe_id, poder, defesa) values ("Mizu", "Humano", "Diplomata" , "Neutro/Bom", 3, 2700, 600);
+insert into tb_personagem (nome, raca, antecendente, tendencia, classe_id, poder, defesa) values ("Galleth", "Elfo da Floresta", "Andarilho" , "Neutro/Bom", 4, 600, 500);
+insert into tb_personagem (nome, raca, antecendente, tendencia, classe_id, poder, defesa) values ("Cornelius", "Meio Elfo", "Desconhecido", "Caotico/Neutro", 1, 500, 700);
+insert into tb_personagem (nome, raca, antecendente, tendencia, classe_id, poder, defesa) values ("Carlos", "Humano", "Desconhecido", "Leal/Bom", 5, 1, 1);
+
+select * from tb_personagem where poder > 2000;
+
+select * from tb_personagem where defesa > 1000 and defesa < 2000;
+
+select * from tb_personagem where nome like "%c%";
+
+select * from tb_personagem inner join tb_classe 
+on tb_personagem.classe_id = tb_classe.id;
+
+select * from tb_personagem inner join tb_classe on tb_personagem.classe_id = tb_classe.id where tb_classe.id = 3;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Atividade 2
+
+create database db_pizzaria_legal;
+use db_pizzaria_legal;
+
+create table tb_categoria(
+id bigint auto_increment unique,
+nome varchar(255) not null,
+sabor varchar(255) not null,
+primary key(id)
+);
+create table tb_pizza(
+id bigint auto_increment unique,
+nome varchar(255) not null,
+preco decimal(8,2) not null,
+categoria_id bigint,
+tipo varchar(255) not null,
+
+primary key(id),
+foreign key (categoria_id) references tb_categora(id)
+);
+
+insert into tb_categoria (nome, sabor) values ("Refrigerantes", "Doce"), ("Porções", "Salgado")
+
