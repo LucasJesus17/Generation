@@ -69,13 +69,33 @@ id bigint auto_increment unique,
 nome varchar(255) not null,
 preco decimal(8,2) not null,
 categoria_id bigint,
-tipo varchar(255) not null,
+ingredientes varchar(255) not null,
 
 primary key(id),
-foreign key (categoria_id) references tb_categora(id)
+foreign key (categoria_id) references tb_categoria (id)
 );
 
-insert into tb_categoria (nome, sabor) values ("Refrigerantes", "Doce"), ("Porções", "Salgado")
+insert into tb_categoria (nome, sabor) values ("Refrigerantes", "Doce");
+insert into tb_categoria (nome, sabor) values ("Porções", "Salgado");
+insert into tb_categoria (nome, sabor) values ("Sucos", "Doce");
+insert into tb_categoria (nome, sabor) values ("Beirute", "Salgado");
+insert into tb_categoria (nome, sabor) values ("Pizzas", "Salgado");
+
+insert into tb_pizza (nome, preco, categoria_id, ingredientes) values ("Mussarela", 30.00, 5, "Mussatela, Tomate, Azeitona");
+insert into tb_pizza (nome, preco, categoria_id, ingredientes) values ("Calabresa", 30.00, 5, "Calabresa, Cebola");
+insert into tb_pizza (nome, preco, categoria_id, ingredientes) values ("Frango c/catupiry", 30.00, 5, "Fango, Catupiry");
+insert into tb_pizza (nome, preco, categoria_id, ingredientes) values ("Calamursa", 32.00, 5, "Cabresa, Mussarela, tomate, cebola, azeitona");
+insert into tb_pizza (nome, preco, categoria_id, ingredientes) values ("Nopolitano", 45.00, 5, "Parmesão, mussarela ,rodelas de tomates, orégano e alho.");
+insert into tb_pizza (nome, preco, categoria_id, ingredientes) values ("Marguerita", 46.00, 5 , "mussarela coberta com tomates fatiados com um toque de manjericão");
+insert into tb_pizza (nome, preco, categoria_id, ingredientes) values ("Calabria", 38.00, 5, "Deliciosas fatias de calabresa acompanhadas de cebola, mussarela e tiras de requeijão.");
+insert into tb_pizza (nome, preco, categoria_id, ingredientes) values ("Pepperoni & Requeijão", 47.00, 5, "Muitas fatias de pepperoni servidas sobre uma camada de mussarela e cobertas por tiras de requeijão.");
+
+select * from tb_pizza Where preco > 45;
+select * from tb_pizza Where preco between 29 and 60;
+
+select * from tb_pizza where nome like "%c%";
+
+select * from tb_pizza inner join tb_categoria on tb_pizza.categoria_id = tb_categoria.id;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -137,3 +157,8 @@ ON tb_categorias.id = tb_produtos.categoria_id;
 SELECT * FROM tb_produtos INNER JOIN tb_categorias 
 ON tb_categorias.id = tb_produtos.categoria_id 
 WHERE tb_categorias.id = 1;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	Atividade 4
+
