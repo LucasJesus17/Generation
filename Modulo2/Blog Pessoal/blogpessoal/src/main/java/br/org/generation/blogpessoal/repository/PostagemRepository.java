@@ -9,8 +9,7 @@ import br.org.generation.blogpessoal.model.Postagem;
 
 @Repository
 public interface PostagemRepository extends JpaRepository<Postagem, Long> {
-	 // Contain == Like do mysql e o IgnoreCase == ignora a diferença entre maiusculo e minusculo
-	public List<Postagem> findAllByTituloContainIgnoreCase(String titulo);
-	
+	 // Containing == Like do mysql e o IgnoreCase == ignora a diferença entre maiusculo e minusculo
+	public List<Postagem> findAllByTituloContainingIgnoreCase(String Titulo);
 }
 
