@@ -62,10 +62,10 @@ public class PostagemController {
 	
 	@DeleteMapping(path="/{id}")
 	public ResponseEntity<?> deletePostagem(@PathVariable Long id) {
-		return postagemRepository.findById(id)
-				.map(record ->{
-					postagemRepository.deleteAllById(null);
-					return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-				}).orElse(ResponseEntity.notFound().build());
+		return postagemRepository.findById(id) //Retorna o ID
+				.map(record ->{ // Verifica se existe o ID
+					postagemRepository.deleteAllById(null); //Deleta por ID
+					return ResponseEntity.status(HttpStatus.NO_CONTENT).build(); //Retorna o Status NoContent
+				}).orElse(ResponseEntity.notFound().build()); //Caso não encontre o ID retorne Not Found
 	}
 }
