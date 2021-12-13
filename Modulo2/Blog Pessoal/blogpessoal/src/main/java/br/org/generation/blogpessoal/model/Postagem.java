@@ -29,15 +29,21 @@ public class Postagem {
 	private String titulo;
 	
 	@NotNull(message = "O Atributo texto é Obrigatorio!")
-	@Size(min = 10, max = 1000, message = "O atributo texto deve ter no minímo 10 e no maximo 1000 caracteres!")
+	@Size(max = 1000, message = "O atributo texto deve ter no minímo 10 e no maximo 1000 caracteres!")
 	private String texto;
 	
 	@UpdateTimestamp
 	private LocalDate data;
 	
+	private String foto;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
 	
 	
 	public Long getId() {
@@ -70,6 +76,19 @@ public class Postagem {
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 	
 }
