@@ -1,6 +1,7 @@
 package br.org.generation.lojadegame.model;
 
-import java.util.Date;
+
+import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -28,11 +28,15 @@ public class Produto {
 	
 	@NotBlank(message = "O atributo Preço é obrigatorio e não pode conter espaço em branco")
 	@Size(min = 1, max = 10, message = "Valor Invalido")
-	private float preco;
+	private BigDecimal preco;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
 	
 	public Long getId() {
 		return id;
@@ -46,10 +50,10 @@ public class Produto {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public float getPreco() {
+	public BigDecimal getPreco() {
 		return preco;
 	}
-	public void setPreco(float preco) {
+	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
 	public Categoria getCategoria() {
@@ -57,7 +61,5 @@ public class Produto {
 	}
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
-	}
-	
-		
+	}	
 }
