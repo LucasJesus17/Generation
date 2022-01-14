@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/script.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Lore</title>
+</head>
+
+<body>
+    <ul id="menu">
+        <li>
+            <a href="Index.html">Home</a>
+        </li>
+        <li>
+            <a href="#">Entre em Contato</a>
+        </li>
+    </ul>
+
+    <h1 class="center">Entre em Contato</h1>
+
+    <div class="container mb-50">
+        <div>
+            <form>
+                <label for="nome">Nome: </label>
+                <input type="text" id="nome" onkeyup='validaNome()'>
+                <div id="txtNome"></div>
+                <br>
+                <label for="email">Email: </label>
+                <input type="email" id="email" onkeyup='validaEmail()'>
+                <div id="txtEmail"></div>
+                <br>
+                <label for="assunto">Assunto: </label> <br>
+                <textarea name="assunto" id="assunto" cols="60" rows="10"></textarea>
+                <br>
+                <br>
+                <button>Enviar</button>
+            </form>
+        </div>
+
+        <div class="ml-50">
+
+
+            <p>Av.Paulista, 100</p>
+            <p>São Paulo - SP</p>
+
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975844559975!2d-46.65867588502221!3d-23.561346184682872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1641844267084!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
+        </div>
+    </div>
+
+    <hr>
+    <footer>
+
+        <div class="container">
+            <a href="http://linkedin.com/" target="_blank">
+                <img class="tm-social p-30" src="assets/img/linkedin.png" alt="Logo do linkedin">
+            </a>
+
+            <a href="http://facebook.com/" target="_blank">
+                <img class="tm-social p-30" src="assets/img/facebook.png" alt="Logo do facebook">
+            </a>
+
+            <a href="http://instagram.com/" target="_blank">
+                <img class="tm-social p-30" src="assets/img/instagram.png" alt="Logo do instagram">
+            </a>
+        </div>
+
+        <p class="center">
+            Todos os direitos reservados: Lucas Silva &copy
+        </p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
