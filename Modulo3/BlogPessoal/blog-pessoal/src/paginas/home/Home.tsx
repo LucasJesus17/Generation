@@ -1,11 +1,12 @@
 import React from "react";
 import './Home.css';
 
-function Home(){
-    return(
+import { Grid, Paper } from '@material-ui/core';
+
+function Home() {
+    return (
         <>
-            <h1 className="titulo">Home</h1>
-            <img src="https://i.imgur.com/D0DIqkB.jpeg" alt="imagem tela inicial" className="img"/>
+         <h1>home</h1>
         </>
     );
 }
